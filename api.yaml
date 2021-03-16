@@ -143,71 +143,71 @@ paths:
                   - publication_date
                 additionalProperties: false
 
-/family_members_for_{patent_type}:
-  get:
-    summary: Returns patent information for a given patent grant, application, or publication.
-    description: Eg. GET /family_members_for_grant?number=8654321
-    parameters:
-      - name: patent_type
-        required: true
-        in: path
-        schema:
-          type: string
-          description: 'Should be one of grant, application, or publication'
-          enum:
-            - grant
-            - application
-            - publication
-      - name: number
-        required: true
-        in: query
-        schema:
-          type: string
-          description: 'A valid patent grant, publication, or patent application number'
-          example: '8654321'
-    responses:
-      '400':
-        description: 'Invalid request parameters'
-      '404':
-        description: 'Patent not found'
-      '500':
-        description: 'Server error'
-      '200':
-        description: 'Patent found'
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                family_members:
-                  type: array
-                  description: 'List of patent family member objects'
-                  items:
-                    type: object
-                    properties:
-                      number:
-                        description: 'The patent document number'
-                        type: string
-                        example: '8822322'
-                      kind:
-                        description: 'The document kind'
-                        type: string
-                        example: 'B2'
-                      country:
-                        description: 'The document country code'
-                        type: string
-                        example: 'US'
-                      date:
-                        type: string
-                        format: date
-                        description: 'The document date in YYYY-MM-DD format'
-                        example: '2010-02-02'
-                    required:
-                      - number
-                      - kind
-                      - country
-                      - date
-                    additionalProperties: false
-              required:
-                - family_members
-              additionalProperties: false
+  /family_members_for_{patent_type}:
+    get:
+      summary: Returns patent information for a given patent grant, application, or publication.
+      description: Eg. GET /family_members_for_grant?number=8654321
+      parameters:
+        - name: patent_type
+          required: true
+          in: path
+          schema:
+            type: string
+            description: 'Should be one of grant, application, or publication'
+            enum:
+              - grant
+              - application
+              - publication
+        - name: number
+          required: true
+          in: query
+          schema:
+            type: string
+            description: 'A valid patent grant, publication, or patent application number'
+            example: '8654321'
+      responses:
+        '400':
+          description: 'Invalid request parameters'
+        '404':
+          description: 'Patent not found'
+        '500':
+          description: 'Server error'
+        '200':
+          description: 'Patent found'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  family_members:
+                    type: array
+                    description: 'List of patent family member objects'
+                    items:
+                      type: object
+                      properties:
+                        number:
+                          description: 'The patent document number'
+                          type: string
+                          example: '8822322'
+                        kind:
+                          description: 'The document kind'
+                          type: string
+                          example: 'B2'
+                        country:
+                          description: 'The document country code'
+                          type: string
+                          example: 'US'
+                        date:
+                          type: string
+                          format: date
+                          description: 'The document date in YYYY-MM-DD format'
+                          example: '2010-02-02'
+                      required:
+                        - number
+                        - kind
+                        - country
+                        - date
+                      additionalProperties: false
+                required:
+                  - family_members
+                additionalProperties: false
