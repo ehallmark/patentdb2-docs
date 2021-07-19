@@ -179,6 +179,9 @@ paths:
               schema:
                 type: object
                 properties:
+                  family_id:
+                    type: string
+                    description: EPO Family ID for the Patent Family
                   family_members:
                     type: array
                     description: 'List of patent family member objects'
