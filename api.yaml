@@ -68,6 +68,9 @@ paths:
                     type: string
                     description: 'Patent application number (sometimes called the filing number, no slashes included)'
                     example: '11616583'
+                  family_id:
+                    type: string
+                    description: EPO Family ID for the Patent Family
                   title:
                     type: string
                     description: 'Patent invention title'
